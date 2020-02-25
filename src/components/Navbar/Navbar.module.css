@@ -1,12 +1,28 @@
 .nav {
   grid-area: nav;
   background-color: burlywood;
+  padding: 20px;
 }
 
 .item {
   color: #fff;
 }
 
-.item a {
+.item:first-child {
+  margin-top: -5px;
+}
+
+.item_link {
+  display: inline-block;
+  padding: 5px 0;
   color: inherit;
+  text-decoration: none;
+}
+
+.item_link:hover {
+  color: cornflowerblue;
+}
+
+.item_link.activeLink {
+  color: cornflowerblue;
 }

@@ -2,7 +2,6 @@
   display: grid;
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
   grid-template-areas:
   "header header header"
   "nav content content";
@@ -13,4 +12,10 @@
 img {
   max-width: 100%;
   height: auto;
+}
+
+.app-wrapper__content {
+  grid-area: content;
+  background-color: cornflowerblue;
+  padding: 20px;
 }

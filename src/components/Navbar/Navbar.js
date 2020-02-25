@@ -1,23 +1,54 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import classes from './Navbar.module.css'
 
 const Navbar = () => (
 	<nav className={classes.nav}>
 		{/*eslint-disable*/}
 		<div className={classes.item}>
-			<a href="">Profile</a>
+			<NavLink
+				to="/profile"
+				className={classes.item_link}
+				activeClassName={classes.activeLink}
+			>
+				Profile
+			</NavLink>
 		</div>
 		<div className={classes.item}>
-			<a href="">Messages</a>
+			<NavLink
+				to="/dialogs"
+				className={classes.item_link}
+				activeClassName={classes.activeLink}
+			>
+				Messages
+			</NavLink>
 		</div>
 		<div className={classes.item}>
-			<a href="">News</a>
+			<NavLink
+				to="/news"
+				className={classes.item_link}
+				activeClassName={classes.activeLink}
+			>
+				News
+			</NavLink>
 		</div>
 		<div className={classes.item}>
-			<a href="">Music</a>
+			<NavLink
+				to="/music"
+				className={classes.item_link}
+				activeClassName={classes.activeLink}
+			>
+				Music
+			</NavLink>
 		</div>
 		<div className={classes.item}>
-			<a href="">Settings</a>
+			<NavLink
+				to="/settings"
+				className={classes.item_link}
+				activeClassName={classes.activeLink}
+			>
+				Settings
+			</NavLink>
 		</div>
 		{/*eslint-enable*/}
 	</nav>
