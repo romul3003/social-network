@@ -6,31 +6,65 @@ const DialogItem = ({ name, id }) => {
 	const path = `/dialogs/${id}`
 
 	return (
-		<div className={`${classes.dialog} ${classes.active}`}>
-			<NavLink to={path}>{name}</NavLink>
+		<div className={classes.dialog}>
+			<NavLink
+				to={path}
+				className={classes.link}
+				activeClassName={classes.active}
+			>
+				{name}
+			</NavLink>
 		</div>
 	)
 }
 
-const Message = ({ message }) => (
-	<div className={classes.message}>{message}</div>
-)
+const Message = ({ name }) => <div className={classes.message}>{name}</div>
+
+const dialogsData = [
+	{
+		id: 1,
+		name: 'Dimych',
+	},
+	{
+		id: 2,
+		name: 'Andrey',
+	},
+	{
+		id: 3,
+		name: 'Sveta',
+	},
+	{
+		id: 4,
+		name: 'Sasha',
+	},
+	{
+		id: 5,
+		name: 'Victor',
+	},
+	{
+		id: 6,
+		name: 'Valera',
+	},
+]
+
+const messagesData = [
+	{ id: 1, message: 'Hi' },
+	{ id: 2, message: 'How are you?' },
+	{ id: 3, message: 'Yo!' },
+]
 
 const Dialogs = () => {
 	return (
 		<div className={classes.dialogs}>
 			<div className={classes.dialogItems}>
-				<DialogItem name="Dimych" id="1" />
-				<DialogItem name="Andrey" id="2" />
-				<DialogItem name="Sveta" id="3" />
-				<DialogItem name="Sasha" id="4" />
-				<DialogItem name="Victor" id="5" />
-				<DialogItem name="Valera" id="6" />
+				{dialogsData.map(user => (
+					<DialogItem id={user.id} name={user.name} key={user.id} />
+				))}
 			</div>
 			<div className={classes.messages}>
-				<Message message="Hi" />
-				<Message message="How are you?" />
-				<Message message="Yo!" />
+				{messagesData.map(message => (
+					<Message name={message.message} key={message.id} />
+				))}
 			</div>
 		</div>
 	)

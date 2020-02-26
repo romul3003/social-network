@@ -7,18 +7,29 @@
   padding: 10px;
 }
 
-.dialogItems .active {
-  color: gold;
-}
-
 .dialog {
 
 }
+
+.link {
+  display: inline-block;
+  padding: 5px 0;
+  color: #fff;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: gold;
+}
+.link.active {
+  color: gold;
+}
+
 
 .messages {
   padding: 10px;
 }
 
 .message {
-
+  color: #fff;
 }
