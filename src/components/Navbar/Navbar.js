@@ -4,7 +4,6 @@ import classes from './Navbar.module.css'
 
 const Navbar = () => (
 	<nav className={classes.nav}>
-		{/*eslint-disable*/}
 		<div className={classes.item}>
 			<NavLink
 				to="/profile"
@@ -50,7 +49,6 @@ const Navbar = () => (
 				Settings
 			</NavLink>
 		</div>
-		{/*eslint-enable*/}
 	</nav>
 )
 
