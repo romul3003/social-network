@@ -25,7 +25,10 @@ const store = {
 			],
 		},
 	},
-	rerenderEntireTree() {
+	getState() {
+		return this._state
+	},
+	_callSubscriber() {
 		// eslint-disable-next-line no-console
 		console.log('State changed')
 	},
@@ -38,14 +41,14 @@ const store = {
 
 		this._state.profilePage.posts.push(newPost)
 		this._state.profilePage.newPostText = ''
-		this.rerenderEntireTree(this._state)
+		this._callSubscriber(this._state)
 	},
 	updateNewPostText(newText) {
 		this._state.profilePage.newPostText = newText
-		this.rerenderEntireTree(this._state)
+		this._callSubscriber(this._state)
 	},
 	subscribe(observer) {
-		this.rerenderEntireTree = observer
+		this._callSubscriber = observer
 	},
 }
 
