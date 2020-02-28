@@ -6,7 +6,7 @@ import Navbar from './components/Navbar/Navbar'
 import Profile from './components/Profile/Profile'
 import Dialogs from './components/Dialogs/Dialogs'
 
-function App() {
+function App({ posts, dialogs, messages }) {
 	return (
 		<Router>
 			<div className="app-wrapper">
@@ -14,8 +14,11 @@ function App() {
 				<Navbar />
 				<div className="app-wrapper__content">
 					<Switch>
-						<Route path="/dialogs" component={Dialogs} />
-						<Route path="/profile" component={Profile} />
+						<Route
+							path="/dialogs"
+							render={() => <Dialogs dialogs={dialogs} messages={messages} />}
+						/>
+						<Route path="/profile" render={() => <Profile posts={posts} />} />
 					</Switch>
 				</div>
 			</div>
