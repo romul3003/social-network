@@ -3,11 +3,18 @@ import React, { Fragment } from 'react'
 import MyPosts from './MyPosts/MyPosts'
 import ProfileInfo from './ProfileInfo/ProfileInfo'
 
-const Profile = ({ posts }) => (
-	<Fragment>
-		<ProfileInfo />
-		<MyPosts posts={posts} />
-	</Fragment>
-)
+const Profile = props => {
+	return (
+		<Fragment>
+			<ProfileInfo />
+			<MyPosts
+				posts={props.profilePage.posts}
+				newPostText={props.profilePage.newPostText}
+				addPost={props.addPost}
+				updateNewPostText={props.updateNewPostText}
+			/>
+		</Fragment>
+	)
+}
 
 export default Profile
