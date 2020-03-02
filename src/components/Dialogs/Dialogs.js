@@ -11,7 +11,7 @@ const Dialogs = props => {
 	))
 
 	const messagesElements = state.messages.map(message => (
-		<Message name={message.message} key={message.id} />
+		<Message message={message.message} key={message.id} />
 	))
 
 	const newMessageBody = state.newMessageBody
