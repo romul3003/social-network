@@ -6,7 +6,7 @@ const Profile = props => {
 	return (
 		<Fragment>
 			<ProfileInfo />
-			<MyPostsContainer store={props.store} />
+			<MyPostsContainer />
 		</Fragment>
 	)
 }
