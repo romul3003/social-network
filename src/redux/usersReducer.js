@@ -6,6 +6,8 @@ const initialState = {
 	users: [
 		// {
 		// 	id: 1,
+		// 	photoUrl:
+		// 		'https://vignette.wikia.nocookie.net/ru.starwars/images/5/50/Darth_Maul_profile.png/revision/latest?cb=20160623105957',
 		// 	followed: false,
 		// 	fullName: 'Roman',
 		// 	status: 'I am a boss',
@@ -13,6 +15,8 @@ const initialState = {
 		// },
 		// {
 		// 	id: 2,
+		// 	photoUrl:
+		// 		'https://vignette.wikia.nocookie.net/ru.starwars/images/5/50/Darth_Maul_profile.png/revision/latest?cb=20160623105957',
 		// 	followed: true,
 		// 	fullName: 'Sasha',
 		// 	status: 'I am a boss too',
@@ -20,6 +24,8 @@ const initialState = {
 		// },
 		// {
 		// 	id: 3,
+		// 	photoUrl:
+		// 		'https://vignette.wikia.nocookie.net/ru.starwars/images/5/50/Darth_Maul_profile.png/revision/latest?cb=20160623105957',
 		// 	followed: false,
 		// 	fullName: 'Andrew',
 		// 	status: 'I am a boss too',
