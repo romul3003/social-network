@@ -3,35 +3,7 @@ const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
 
 const initialState = {
-	users: [
-		// {
-		// 	id: 1,
-		// 	photoUrl:
-		// 		'https://vignette.wikia.nocookie.net/ru.starwars/images/5/50/Darth_Maul_profile.png/revision/latest?cb=20160623105957',
-		// 	followed: false,
-		// 	fullName: 'Roman',
-		// 	status: 'I am a boss',
-		// 	location: { city: 'Kyiv', country: 'Ukraine' },
-		// },
-		// {
-		// 	id: 2,
-		// 	photoUrl:
-		// 		'https://vignette.wikia.nocookie.net/ru.starwars/images/5/50/Darth_Maul_profile.png/revision/latest?cb=20160623105957',
-		// 	followed: true,
-		// 	fullName: 'Sasha',
-		// 	status: 'I am a boss too',
-		// 	location: { city: 'Minsk', country: 'Belarus' },
-		// },
-		// {
-		// 	id: 3,
-		// 	photoUrl:
-		// 		'https://vignette.wikia.nocookie.net/ru.starwars/images/5/50/Darth_Maul_profile.png/revision/latest?cb=20160623105957',
-		// 	followed: false,
-		// 	fullName: 'Andrew',
-		// 	status: 'I am a boss too',
-		// 	location: { city: 'Riga', country: 'Latvia' },
-		// },
-	],
+	users: [],
 }
 
 const usersReducer = (state = initialState, action) => {

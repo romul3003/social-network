@@ -1,37 +1,15 @@
 import React from 'react'
+import * as axios from 'axios'
 import classes from './users.module.css'
+import userPhoto from '../../assets/images/user.png'
 
 const Users = props => {
 	if (!props.users.length) {
-		props.setUsers([
-			{
-				id: 1,
-				photoUrl:
-					'https://vignette.wikia.nocookie.net/ru.starwars/images/5/50/Darth_Maul_profile.png/revision/latest?cb=20160623105957',
-				followed: false,
-				fullName: 'Roman',
-				status: 'I am a boss',
-				location: { city: 'Kyiv', country: 'Ukraine' },
-			},
-			{
-				id: 2,
-				photoUrl:
-					'https://vignette.wikia.nocookie.net/ru.starwars/images/5/50/Darth_Maul_profile.png/revision/latest?cb=20160623105957',
-				followed: true,
-				fullName: 'Sasha',
-				status: 'I am a boss too',
-				location: { city: 'Minsk', country: 'Belarus' },
-			},
-			{
-				id: 3,
-				photoUrl:
-					'https://vignette.wikia.nocookie.net/ru.starwars/images/5/50/Darth_Maul_profile.png/revision/latest?cb=20160623105957',
-				followed: false,
-				fullName: 'Andrew',
-				status: 'I am a boss too',
-				location: { city: 'Riga', country: 'Latvia' },
-			},
-		])
+		axios
+			.get('https://social-network.samuraijs.com/api/1.0/users')
+			.then(response => {
+				props.setUsers(response.data.items)
+			})
 	}
 
 	return (
@@ -41,8 +19,8 @@ const Users = props => {
 					<span>
 						<div>
 							<img
-								src={user.photoUrl}
-								alt={user.fullName}
+								src={user.photos.small !== null ? user.photos.small : userPhoto}
+								alt={user.name}
 								className={classes.userPhoto}
 							/>
 						</div>
@@ -57,12 +35,12 @@ const Users = props => {
 						</div>
 					</span>
 					<span>
-						<div>{user.fullName}</div>
+						<div>{user.name}</div>
 						<div>{user.status}</div>
 					</span>
 					<span>
-						<div>{user.location.country}</div>
-						<div>{user.location.city}</div>
+						<div>{'user.location.country'}</div>
+						<div>{'user.location.city'}</div>
 					</span>
 				</div>
 			))}
