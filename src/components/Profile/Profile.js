@@ -5,7 +5,7 @@ import ProfileInfo from './ProfileInfo/ProfileInfo'
 const Profile = props => {
 	return (
 		<Fragment>
-			<ProfileInfo />
+			<ProfileInfo profile={props.profile} />
 			<MyPostsContainer />
 		</Fragment>
 	)

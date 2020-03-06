@@ -1,7 +1,12 @@
 import React from 'react'
 import classes from './ProfileInfo.module.css'
+import Preoader from '../../Preloader/Preoader'
 
-const ProfileInfo = () => {
+const ProfileInfo = props => {
+	if (!props.profile) {
+		return <Preoader />
+	}
+
 	return (
 		<div>
 			<div>
@@ -10,7 +15,12 @@ const ProfileInfo = () => {
 					alt=""
 				/>
 			</div>
-			<div className={classes.descriptionBlock}>ava + description</div>
+			<div className={classes.descriptionBlock}>
+				<img src={props.profile.photos.large} alt={props.profile.fullName} />
+				<div>
+					<strong>About me:</strong> {props.profile.aboutMe}
+				</div>
+			</div>
 		</div>
 	)
 }
