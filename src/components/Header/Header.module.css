@@ -1,8 +1,27 @@
 .header {
   grid-area: header;
+  padding: 10px;
   background-color: green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header img {
-  width: 80px;
+  display: inline-block;
+  max-width: 60px;
+}
+
+.login_block {
+  float: right;
+  color: #fff;
+}
+
+.login_block a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.login_block a:hover {
+  color: burlywood;
 }
