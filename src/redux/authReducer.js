@@ -25,7 +25,7 @@ const authReducer = (state = initialState, action) => {
 }
 
 // action creators
-export const setAuthUserData = (userId, email, login) => ({
+export const setAuthUserData = (userId, email, login, resultCode) => ({
 	type: SET_USER_DATA,
 	data: { userId, email, login },
 })
@@ -33,8 +33,10 @@ export const setAuthUserData = (userId, email, login) => ({
 // thunks
 export const getAuthUserData = () => dispatch => {
 	authAPI.me().then(data => {
-		const { id, email, login } = data.data
-		dispatch(setAuthUserData(id, email, login))
+		if (data.resultCode === 0) {
+			const { id, email, login } = data.data
+			dispatch(setAuthUserData(id, email, login))
+		}
 	})
 }
 
