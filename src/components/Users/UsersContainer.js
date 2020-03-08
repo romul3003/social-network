@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {
-	getUsers,
-	follow,
-	unfollow,
-	setCurrentPage,
-} from '../../redux/usersReducer'
+import { getUsers, follow, unfollow } from '../../redux/usersReducer'
 import Users from './Users'
 import Preoader from '../Preloader/Preoader'
 
@@ -16,7 +11,6 @@ class UsersContainer extends Component {
 
 	onPageChanged = pageNumber => {
 		this.props.getUsers(pageNumber, this.props.pageSize)
-		this.props.setCurrentPage(pageNumber)
 	}
 
 	render() {
@@ -52,6 +46,5 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
 	follow,
 	unfollow,
-	setCurrentPage,
 	getUsers,
 })(UsersContainer)
