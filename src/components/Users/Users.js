@@ -46,9 +46,7 @@ const Users = props => {
 									disabled={props.followingInProgress.some(
 										id => id === user.id
 									)}
-									onClick={() => {
-										props.unfollow(user.id)
-									}}
+									onClick={() => props.unfollow(user.id)}
 								>
 									Unfollow
 								</button>
@@ -57,9 +55,7 @@ const Users = props => {
 									disabled={props.followingInProgress.some(
 										id => id === user.id
 									)}
-									onClick={() => {
-										props.follow(user.id)
-									}}
+									onClick={() => props.follow(user.id)}
 								>
 									Follow
 								</button>
