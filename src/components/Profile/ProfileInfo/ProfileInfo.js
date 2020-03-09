@@ -1,10 +1,10 @@
 import React from 'react'
 import classes from './ProfileInfo.module.css'
-import Preoader from '../../Preloader/Preoader'
+import Preloader from '../../Preloader/Preloader'
 
 const ProfileInfo = props => {
 	if (!props.profile) {
-		return <Preoader />
+		return <Preloader />
 	}
 
 	return (

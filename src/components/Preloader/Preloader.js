@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './Preloader.module.css'
 
-const Preoader = () => {
+const Preloader = () => {
 	return (
 		<div className={classes.spinner}>
 			<div />
@@ -20,4 +20,4 @@ const Preoader = () => {
 	)
 }
 
-export default Preoader
+export default Preloader
