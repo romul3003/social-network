@@ -1,3 +1,12 @@
 .wrap {
   padding: 0 10px 10px;
 }
+
+.form_summary_error {
+  box-sizing: border-box;
+  max-width: 220px;
+  margin: 5px 0;
+  border: 1px solid red;
+  padding: 10px;
+  color: red;
+}
