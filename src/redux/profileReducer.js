@@ -1,4 +1,4 @@
-import { profileAPI, usersAPI } from '../api/api'
+import { profileAPI } from '../api/api'
 
 const ADD_POST = 'ADD_POST'
 const SET_USER_PROFILE = 'SET_USER_PROFILE'
@@ -62,10 +62,10 @@ export const setStatus = status => {
 	}
 }
 
-// thunks
+// thunk creators
 export const getUserProfile = userId => {
 	return dispatch => {
-		usersAPI.getProfile(userId).then(data => dispatch(setUserProfile(data)))
+		profileAPI.getProfile(userId).then(data => dispatch(setUserProfile(data)))
 	}
 }
 

@@ -23,7 +23,7 @@ export const initializedSuccess = () => ({
 	type: INITIALIZED_SUCCESS,
 })
 
-// thunks
+// thunk creators
 export const initializeApp = () => dispatch => {
 	const promise = dispatch(getAuthUserData())
 

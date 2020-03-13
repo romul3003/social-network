@@ -30,7 +30,7 @@ export const setAuthUserData = (userId, email, login, isAuth) => ({
 	payload: { userId, email, login, isAuth },
 })
 
-// thunks
+// thunk creators
 export const getAuthUserData = () => dispatch => {
 	return authAPI.me().then(data => {
 		if (data.resultCode === 0) {

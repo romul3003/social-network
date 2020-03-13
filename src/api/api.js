@@ -20,11 +20,6 @@ export const usersAPI = {
 	unfollow(userId = 2) {
 		return instance.delete(`follow/${userId}`).then(response => response.data)
 	},
-	getProfile(userId) {
-		// eslint-disable-next-line no-console
-		console.warn('Obsolete method. Please use profileAPI object.')
-		return profileAPI.getProfile(userId)
-	},
 }
 
 export const profileAPI = {
