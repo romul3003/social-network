@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { getUsers, follow, unfollow } from '../../redux/usersReducer'
 import Users from './Users'
 import Preloader from '../common/Preloader/Preloader'
-import { withAuthRedirect } from '../../hoc/withAuthRedirect'
+// import { withAuthRedirect } from '../../hoc/withAuthRedirect'
 import { compose } from 'redux'
 
 class UsersContainer extends Component {
@@ -50,6 +50,6 @@ export default compose(
 		follow,
 		unfollow,
 		getUsers,
-	}),
-	withAuthRedirect
+	})
+	// withAuthRedirect
 )(UsersContainer)
