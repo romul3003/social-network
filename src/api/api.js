@@ -23,18 +23,17 @@ export const usersAPI = {
 }
 
 export const profileAPI = {
-	getProfile(userId) {
-		return instance.get(`profile/${userId}`).then(response => response.data)
+	async getProfile(userId) {
+		const response = await instance.get(`profile/${userId}`)
+		return response.data
 	},
-	getStatus(userId) {
-		return instance
-			.get(`profile/status/${userId}`)
-			.then(response => response.data)
+	async getStatus(userId) {
+		const response = await instance.get(`profile/status/${userId}`)
+		return response.data
 	},
-	updateStatus(status) {
-		return instance
-			.put('profile/status', { status })
-			.then(response => response.data)
+	async updateStatus(status) {
+		const response = await instance.put('profile/status', { status })
+		return response.data
 	},
 }
 
