@@ -1,4 +1,5 @@
 import { usersAPI } from '../api/api'
+import { updataObjectInArray } from '../utils/objectHelpers'
 
 const FOLLOW = 'social-network/users/FOLLOW'
 const UNFOLLOW = 'social-network/users/UNFOLLOW'
@@ -23,21 +24,15 @@ const usersReducer = (state = initialState, action) => {
 		case FOLLOW:
 			return {
 				...state,
-				users: state.users.map(user => {
-					if (user.id === action.userId) {
-						return { ...user, followed: true }
-					}
-					return user
+				users: updataObjectInArray(state.users, action.userId, 'id', {
+					followed: true,
 				}),
 			}
 		case UNFOLLOW:
 			return {
 				...state,
-				users: state.users.map(user => {
-					if (user.id === action.userId) {
-						return { ...user, followed: false }
-					}
-					return user
+				users: updataObjectInArray(state.users, action.userId, 'id', {
+					followed: false,
 				}),
 			}
 		case SET_USERS:
@@ -108,27 +103,40 @@ export const requestUsers = (page, pageSize) => {
 	}
 }
 
+const follorUnfollowFlow = async (
+	dispatch,
+	userId,
+	apiMethod,
+	actionCreator
+) => {
+	dispatch(toggleIsFollowingProgress(true, userId))
+	const data = await apiMethod(userId)
+
+	if (data.resultCode === 0) {
+		dispatch(actionCreator(userId))
+	}
+	dispatch(toggleIsFollowingProgress(false, userId))
+}
+
 export const follow = userId => {
 	return async dispatch => {
-		dispatch(toggleIsFollowingProgress(true, userId))
-
-		const data = await usersAPI.follow(userId)
-		if (data.resultCode === 0) {
-			dispatch(followSuccess(userId))
-		}
-		dispatch(toggleIsFollowingProgress(false, userId))
+		follorUnfollowFlow(
+			dispatch,
+			userId,
+			usersAPI.follow.bind(usersAPI),
+			followSuccess
+		)
 	}
 }
 
 export const unfollow = userId => {
 	return async dispatch => {
-		dispatch(toggleIsFollowingProgress(true, userId))
-
-		const data = await usersAPI.unfollow(userId)
-		if (data.resultCode === 0) {
-			dispatch(unfollowSuccess(userId))
-		}
-		dispatch(toggleIsFollowingProgress(false, userId))
+		follorUnfollowFlow(
+			dispatch,
+			userId,
+			usersAPI.unfollow.bind(usersAPI),
+			unfollowSuccess
+		)
 	}
 }
 
