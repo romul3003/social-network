@@ -39,15 +39,20 @@ export const profileAPI = {
 }
 
 export const authAPI = {
-	me() {
-		return instance.get(`auth/me`).then(response => response.data)
+	async me() {
+		const response = await instance.get(`auth/me`)
+		return response.data
 	},
-	login(email, password, rememberMe = false) {
-		return instance
-			.post(`auth/login`, { email, password, rememberMe })
-			.then(response => response.data)
+	async login(email, password, rememberMe = false) {
+		const response = await instance.post(`auth/login`, {
+			email,
+			password,
+			rememberMe,
+		})
+		return response.data
 	},
-	logout() {
-		return instance.delete(`auth/login`).then(response => response.data)
+	async logout() {
+		const response = await instance.delete(`auth/login`)
+		return response.data
 	},
 }
