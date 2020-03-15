@@ -4,27 +4,18 @@ import Preloader from '../../common/Preloader/Preloader'
 // import ProfileStatus from './ProfileStatus'
 import ProfileStatusWithHooks from './ProfileStatusWithHooks'
 
-const ProfileInfo = props => {
-	if (!props.profile) {
+const ProfileInfo = ({ profile, status, updateStatus }) => {
+	if (!profile) {
 		return <Preloader />
 	}
 
 	return (
 		<div>
-			<div>
-				{/*<img*/}
-				{/*	src="https://external-preview.redd.it/RaWcOb8MVDA3tze0evAogMHG8rSpDkrqISpgBW9Tn-g.jpg?auto=webp&s=3513b1d3115109b102214d165ad78cb39605ef13"*/}
-				{/*	alt=""*/}
-				{/*/>*/}
-			</div>
 			<div className={classes.descriptionBlock}>
-				<img src={props.profile.photos.large} alt={props.profile.fullName} />
+				<img src={profile.photos.large} alt={profile.fullName} />
 				<div>
-					<ProfileStatusWithHooks
-						status={props.status}
-						updateStatus={props.updateStatus}
-					/>
-					<strong>About me:</strong> {props.profile.aboutMe}
+					<ProfileStatusWithHooks status={status} updateStatus={updateStatus} />
+					<strong>About me:</strong> {profile.aboutMe}
 				</div>
 			</div>
 		</div>
