@@ -3,10 +3,10 @@ import classes from './MyPosts.module.css'
 import Post from './Post/Post'
 import AddNewPostForm from './AddNewPostForm/AddNewPostForm'
 
-class MyPosts extends React.Component {
-	shouldComponentUpdate(nextProps, nextState, nextContext) {
-		return nextProps !== this.props || nextState !== this.state
-	}
+class MyPosts extends React.PureComponent {
+	// shouldComponentUpdate(nextProps, nextState, nextContext) {
+	// 	return nextProps !== this.props || nextState !== this.state
+	// }
 
 	render() {
 		const postElements = this.props.posts.map(post => (
