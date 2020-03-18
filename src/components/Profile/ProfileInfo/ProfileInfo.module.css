@@ -1,9 +1,27 @@
-.descriptionBlock {
+.description_block {
   padding: 10px;
 }
 
-.mainPhoto {
+.photo_wrap {
+  margin-bottom: 10px;
+}
+
+.main_photo {
   max-width: 200px;
   margin-right: 10px;
   vertical-align: bottom;
+}
+
+.contacts {
+  list-style: none;
+  padding-left: 10px;
+}
+
+.form_summary_error {
+  box-sizing: border-box;
+  max-width: 220px;
+  margin: 5px 0;
+  border: 1px solid red;
+  padding: 10px;
+  color: red;
 }
