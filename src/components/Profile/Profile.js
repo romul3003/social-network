@@ -2,13 +2,15 @@ import React, { Fragment } from 'react'
 import MyPostsContainer from './MyPosts/MyPostsContainer'
 import ProfileInfo from './ProfileInfo/ProfileInfo'
 
-const Profile = props => {
+const Profile = ({ isOwner, profile, status, updateStatus, savePhoto }) => {
 	return (
 		<Fragment>
 			<ProfileInfo
-				profile={props.profile}
-				status={props.status}
-				updateStatus={props.updateStatus}
+				profile={profile}
+				status={status}
+				updateStatus={updateStatus}
+				isOwner={isOwner}
+				savePhoto={savePhoto}
 			/>
 			<MyPostsContainer />
 		</Fragment>
