@@ -1,6 +1,12 @@
 import React from 'react'
 import './App.css'
-import { HashRouter as Router, Route, withRouter } from 'react-router-dom'
+import {
+	HashRouter as Router,
+	Redirect,
+	Route,
+	Switch,
+	withRouter,
+} from 'react-router-dom'
 import Navbar from './components/Navbar/Navbar'
 import HeaderContainer from './components/Header/HeaderContainer'
 import UsersContainer from './components/Users/UsersContainer'
@@ -11,6 +17,7 @@ import { initializeApp } from './redux/appRecucer'
 import Preloader from './components/common/Preloader/Preloader'
 import store from './redux/store'
 import { withSuspense } from './hoc/withSuspense'
+import NotFound from './components/NotFound/NotFound'
 
 const DialogsContainer = React.lazy(() =>
 	import('./components/Dialogs/DialogsContainer')
@@ -34,13 +41,17 @@ class App extends React.Component {
 				<HeaderContainer />
 				<Navbar />
 				<div className="app-wrapper__content">
-					<Route path="/dialogs" render={withSuspense(DialogsContainer)} />
-					<Route
-						path="/profile/:userId?"
-						render={withSuspense(ProfileContainer)}
-					/>
-					<Route path="/users" render={() => <UsersContainer />} />
-					<Route path="/login" render={() => <LoginPage />} />
+					<Switch>
+						<Redirect exact from="/" to="/profile" />
+						<Route path="/dialogs" render={withSuspense(DialogsContainer)} />
+						<Route
+							path="/profile/:userId?"
+							render={withSuspense(ProfileContainer)}
+						/>
+						<Route path="/users" render={() => <UsersContainer />} />
+						<Route path="/login" render={() => <LoginPage />} />
+						<Route component={NotFound} />
+					</Switch>
 				</div>
 			</div>
 		)

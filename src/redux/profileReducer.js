@@ -66,13 +66,23 @@ const savePhotoSuccess = photos => ({ type: SAVE_PHOTO_SUCCESS, photos })
 
 // thunk creators
 export const getUserProfile = userId => async dispatch => {
-	const data = await profileAPI.getProfile(userId)
-	dispatch(setUserProfile(data))
+	try {
+		const data = await profileAPI.getProfile(userId)
+		dispatch(setUserProfile(data))
+	} catch (e) {
+		// eslint-disable-next-line no-console
+		console.log('OOooops!!!', e.message)
+	}
 }
 
 export const getStatus = userId => async dispatch => {
-	const data = await profileAPI.getStatus(userId)
-	dispatch(setStatus(data))
+	try {
+		const data = await profileAPI.getStatus(userId)
+		dispatch(setStatus(data))
+	} catch (e) {
+		// eslint-disable-next-line no-console
+		console.log('OOooops!!!', e.message)
+	}
 }
 
 export const updateStatus = status => async dispatch => {
