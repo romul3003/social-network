@@ -1,42 +1,12 @@
 import { profileAPI } from '../api/api'
 import { stopSubmit } from 'redux-form'
+import {PhotosType, PostType, ProfileType} from '../types/types'
 
 const ADD_POST = 'social-network/profile/ADD_POST'
 const SET_USER_PROFILE = 'social-network/profile/SET_USER_PROFILE'
 const SET_STATUS = 'social-network/profile/SET_STATUS'
 const DELETE_POST = 'social-network/profile/DELETE_POST'
 const SAVE_PHOTO_SUCCESS = 'social-network/profile/SAVE_PHOTO_SUCCESS'
-
-type PostType = {
-	id: number,
-	message: string,
-	likesCount: number,
-}
-
-type ContactsType = {
-	github: string,
-	vk: string,
-	facebook: string,
-	instagram: string,
-	twitter: string,
-	website: string,
-	youtube: string,
-	mainLink: string,
-}
-
-type PhotosType = {
-	small: string | null,
-	large: string | null,
-}
-
-type ProfileType = {
-	userId: number,
-	lookingForAJob: boolean,
-	lookingForAJobDescription: string,
-	fullName: string,
-	contacts: ContactsType,
-	photos: PhotosType,
-}
 
 const initialState = {
 	posts: [
