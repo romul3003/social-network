@@ -22,11 +22,11 @@ const appReducer = (state = initialState, action: any): InitialStateType => {
 	}
 }
 
+// action creators
 type InitializedSuccessActionType = {
 	type: typeof INITIALIZED_SUCCESS
 }
 
-// action creators
 export const initializedSuccess = (): InitializedSuccessActionType => ({
 	type: INITIALIZED_SUCCESS,
 })
